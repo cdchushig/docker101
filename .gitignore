@@ -94,12 +94,15 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
+<<<<<<< HEAD
 # UV
 #   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
 #   commonly ignored for libraries.
 #uv.lock
 
+=======
+>>>>>>> master
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
@@ -112,10 +115,15 @@ ipython_config.py
 #pdm.lock
 #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 #   in version control.
+<<<<<<< HEAD
 #   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
 .pdm.toml
 .pdm-python
 .pdm-build/
+=======
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+>>>>>>> master
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
@@ -146,6 +154,7 @@ venv.bak/
 # mkdocs documentation
 /site
 
+<<<<<<< HEAD
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -172,3 +181,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+=======
+#reports/
+.idea/
+data/
+reports/
+shared/
+
+*.csv
+>>>>>>> master
