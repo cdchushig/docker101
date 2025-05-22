@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Predictor</title>
+</head>
+<body>
+    <h1>Iris Flower Prediction</h1>
+    <form method="POST">
+        <label>Sepal Length:</label><input name="feature1" type="number" step="any" required><br>
+        <label>Sepal Width:</label><input name="feature2" type="number" step="any" required><br>
+        <label>Petal Length:</label><input name="feature3" type="number" step="any" required><br>
+        <label>Petal Width:</label><input name="feature4" type="number" step="any" required><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>

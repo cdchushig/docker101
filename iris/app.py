@@ -1,29 +1,17 @@
-from flask import Flask, request, render_template
-import pickle
+from flask import Flask, request, jsonify, render_template
+import joblib
 import numpy as np
 
 app = Flask(__name__)
+model = joblib.load('model.pkl')
 
-# Cargar el modelo entrenado
-with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
-
-@app.route("/", methods=["GET", "POST"])
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == "POST":
+    prediction = None
+    if request.method == 'POST':
         try:
-            features = [
-                float(request.form["sepal_length"]),
-                float(request.form["sepal_width"]),
-                float(request.form["petal_length"]),
-                float(request.form["petal_width"])
-            ]
-            pred = model.predict([features])[0]
-            clases = ["Setosa", "Versicolor", "Virginica"]
-            return f"<h2>Predicción: {clases[pred]}</h2><a href='/'>Volver</a>"
-        except:
-            return "<h2>Error en los datos. Asegúrate de que los valores sean numéricos.</h2><a href='/'>Volver</a>"
-    return render_template("form.html")
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+            features = [float(request.form[f'feature{i}']) for i in range(1, 5)]
+            prediction = model.predict([features])[0]
+        except Exception as e:
+            prediction = f"Error: {str(e)}"
+    return render_template('index.html', prediction=prediction)

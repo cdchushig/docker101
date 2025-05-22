@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Formulario Flask</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form method="POST" action="/">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="0" required><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    {% if nombre and edad %}
+    <h2>Datos recibidos:</h2>
+    <p>Nombre: {{ nombre }}</p>
+    <p>Edad: {{ edad }}</p>
+    {% endif %}
+</body>
+</html>
