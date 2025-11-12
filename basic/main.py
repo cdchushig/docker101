@@ -1,1 +1,1 @@
-print("Docker is magic!")
+print("Hello world! Docker is magic!")
